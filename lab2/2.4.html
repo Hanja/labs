@@ -1,0 +1,35 @@
+﻿<HTML>
+  <head>
+    <script>
+      function f(s){
+        tbl.innerHTML="";
+        var c=s.form.c.value;
+        var r=s.form.r.value;
+        var s,i,j,num;
+        var mas=["а", "б", "в", "г", "д", "е", "ё", "ж", "з", "и", "й", "к", "л", "м", "н", "о", "п", "р", "с",
+        "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ы", "ь", "э", "ю", "я"];
+        for(i=0;i<r;i++){
+          tbl.insertRow();
+          for(j=0; j<c; j++) {
+            tbl.rows[i].insertCell();  
+	    num=Math.floor(Math.random()*(32-0+1))+0;
+            tbl.rows[i].cells[j].innerHTML=mas[num];
+          }
+        }     
+      }
+    </SCRIPT>
+  </HEAD>
+  <BODY>
+    <FORM>
+      <INPUT SIZE=2 ID=r> строк
+      <br>
+      <br>
+      <INPUT SIZE=2 ID=c> столбцов
+      <br>
+      <br>
+      <INPUT TYPE=BUTTON ONCLICK='f(this)' VALUE='Создать'>
+    </FORM>
+    <TABLE ID=tbl BORDER=1>
+    </TABLE>
+  </BODY>
+</HTML>
