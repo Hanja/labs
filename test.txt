@@ -1,2 +1,0 @@
-﻿<input type="text" name="input" size="16" class="display">
-	
