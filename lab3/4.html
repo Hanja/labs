@@ -1,0 +1,173 @@
+<html>
+	<head>
+		<title>
+			4
+		</title>
+		<script type="text/javascript" src="C:/labs/jquery.js">
+		</script>
+	</head>
+	<script>
+		function openModal()
+		{
+			$('#modal').css('display','block');
+			$('#shadow').css('display','block');
+		}
+		function closeModal()
+		{
+			$('#modal').css('display','none');
+			$('#shadow').css('display','none');
+		}
+	</script>
+	<style>
+		#galery
+		{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: grey;
+			z-index: 1;
+		}
+		#modal
+		{
+			position: fixed;
+			left: 30%;
+			right: 30%;
+			top: 25%;
+			width: 500px;
+			height: 500px;
+			display: none;
+			background: red;
+			text-align: center;
+			z-index: 3;
+		}
+		#close
+		{
+			width: 30px;
+			height: 30px;
+			font-size: 3ex;
+			float: right;
+			color: red;
+			border: 1px solid black;
+			background: grey;
+		}
+		#prevPicture
+		{
+			width: 50px;
+			height: 30px;
+			font-size: 3ex;
+			float: left;
+			top: 45%;
+			left: 0;
+			position: absolute;
+			border: 1px solid black;
+			background: grey;
+		}
+		#nextPicture
+		{
+			width: 50px;
+			height: 30px;
+			font-size: 3ex;
+			float: right;
+			top: 45%;
+			right: 0;
+			position: absolute;
+			border: 1px solid black;
+			background: grey;
+		}
+		#shadow
+		{
+			width: 100%;
+			height: 100%;
+			background: black;
+			opacity: 0.9;
+			display: none;
+			position: fixed;
+			left: 0;
+			right: 0;
+			top: 0;
+			z-index: 2;
+		}
+		#first, #second, #third, #fourth
+		{
+			margin: 50px;
+			position: relative;
+			top: 300px;
+			display: block;
+			float: left;
+		}
+	</style>
+	<body>
+		<div id="galery">
+			<image id="first" src="./images/1.jpg" style="height: 200px; width: 200px;"></image>
+			<image id="second" src="./images/2.jpg" style="height: 200px; width: 200px;"></image>
+			<image id="third" src="./images/3.jpg" style="height: 200px; width: 200px;"></image>
+			<image id="fourth" src="./images/4.jpg" style="height: 200px; width: 200px;"></image>
+			<script>
+				var a=0;
+				$('#first').click(function()
+				{
+					$('#modal').css('background-image','url(./images/1.jpg)');
+					openModal();
+					a=1;
+				});
+				$('#second').click(function()
+				{
+					$('#modal').css('background-image','url(./images/2.jpg)');
+					openModal();
+					a=2;
+				});
+				$('#third').click(function()
+				{
+					$('#modal').css('background-image','url(./images/3.jpg)');
+					openModal();
+					a=3;
+				});
+				$('#fourth').click(function()
+				{
+					$('#modal').css('background-image','url(./images/4.jpg)');
+					openModal();
+					a=4;
+				});
+				function prevPicture()
+				{
+					if (a>1)
+						$('#modal').css('background-image','url(./images/'+(--a)+'.jpg)');
+				}
+				function nextPicture()
+				{
+					if (a<4)
+						$('#modal').css('background-image','url(./images/'+(++a)+'.jpg)');
+				}
+				$(function()
+				{
+					$(document).focus;
+					$(document).keydown(function(event){ 
+						if (event.keyCode==37)
+							prevPicture();
+						if (event.keyCode==39)
+							nextPicture();
+					});
+				});
+			</script>
+			<div id="shadow">
+			</div>
+			<div id="modal">
+				<input type="button" value="X" id="close" onclick="closeModal()">
+				</input>
+				<input type="button" value="<--" id="prevPicture" onclick="prevPicture()">
+				</input>
+				<input type="button" value="-->" id="nextPicture" onclick="nextPicture()">
+				</input>
+			</div>
+			<script>
+				$('#shadow').click(function()
+				{
+					closeModal();
+				});
+				
+			</script>
+		</div>
+	</body>
+</html>

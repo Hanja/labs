@@ -1,0 +1,43 @@
+﻿<html>
+  <head>
+    <title>
+      1
+    </title>
+	<script type="text/javascript" src="C:/labs/jquery.js">
+    </script>
+  </head>
+  <script>
+    var a=0;
+    function edit()
+    {
+	  if (a==0)
+	  {
+	    $('div.main').css('border', '3px solid red');
+	    $('div.main').css('color', 'red');
+	    $('div.main').append('<p>Изменения внес: Евгений Сидоркин</p>');
+		a=1;
+      }
+	}
+    function cancel()
+	{
+	  if (a==1)
+	  {
+	    $('div.main').css('color','black');
+	    $('div.main').css('border','none');
+		$('p:last').after('').remove();
+		a=0;
+	  }
+	}	  
+  </script> 
+  <body>
+    <div id="main" class="main" style="height: 100px; width: 40%; position: absolute; left: 30%; right: 30%; text-align: center;">
+       
+		
+		<input type="button" value="Изменить" onclick="edit()" />
+		
+		<input type="button" value="Отменить" onclick="cancel()" />
+		
+		<p>HELLO WORLD!</p>
+    </div>
+  </body>
+</html>

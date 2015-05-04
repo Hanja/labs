@@ -1,0 +1,63 @@
+body
+{
+	font-size: 3ex;
+}
+div.panes div {
+	display:none;		
+	text-align: center;
+	border:1px solid #999;
+	height:200px;
+	width: 300px;
+	font-size:14px;
+	background-color:#fff;
+}
+ul.tabs 
+{ 
+	list-style:none; 
+	margin:0 !important; 
+	padding:0;
+	height:30px;	
+}
+
+ul.tabs li 
+{ 
+	float:left;	 
+	text-indent:0;
+	padding:0;
+	margin:0 !important;
+	list-style-image:none !important; 
+}
+ul.tabs a 
+{ 
+	font-size:3ex;
+	display:block;
+	height: 30px;  
+	width: 100px;
+	text-align:center;	
+	text-decoration:none;
+	color:#000;
+	padding:0px;
+	margin:0px;	
+	position:relative;
+	top:1px;
+}
+ul.tabs a:active 
+{
+	outline:none;		
+}
+ul.tabs a:hover 
+{
+	color:#fff;	
+}
+ul.tabs a.current, ul.tabs a.current:hover, ul.tabs li.current a
+{		
+	cursor:default !important; 
+	color:#000 !important;
+	border: 1px solid black;
+}
+
+
+
+
+
+
