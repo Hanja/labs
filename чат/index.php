@@ -1,5 +1,4 @@
 ﻿<html>
- //<meta http-equiv="Refresh" content="30" />
 <title>Чат</title>
  
 <head>
