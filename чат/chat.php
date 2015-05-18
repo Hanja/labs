@@ -65,19 +65,22 @@
 		if (<?php echo $user_data['flag'] ?> == 2)
 			$('#mess_to_send').val('Вы не можете отправлять сообщения');
 		else
-			$.ajax({
-                type: "POST",
-                url: "add_mess.php",
-                data: {'mess': mess,'time': time.getHours()+':'+time.getMinutes()+':'+time.getSeconds(), 'userID': <?php echo $user_data['id'] ?>},
-                // Выводим то что вернул PHP
-                success: function(html)
-				{
-					//Если все успешно, загружаем сообщения
-					load_messes();
-					//Очищаем форму ввода сообщения
-					$("#mess_to_send").val(''); 
-                }
-			});
+			if (mess.indexOf("<script")==-1)
+				$.ajax({
+					type: "POST",
+					url: "add_mess.php",
+					data: {'mess': mess,'time': time.getHours()+':'+time.getMinutes()+':'+time.getSeconds(), 'userID': <?php echo $user_data['id'] ?>},
+					// Выводим то что вернул PHP
+					success: function(html)
+					{
+						//Если все успешно, загружаем сообщения
+						load_messes();
+						//Очищаем форму ввода сообщения
+						$("#mess_to_send").val(''); 
+					}
+				});
+			else
+				$('#mess_to_send').val('НЕ ШУТИ!!!');
 	}
 	//Функция загрузки сообщений
 	function load_messes()
