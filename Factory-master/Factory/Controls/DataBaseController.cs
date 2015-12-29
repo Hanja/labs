@@ -89,7 +89,17 @@ namespace Factory.Controls
         /// <returns></returns>
         public static List<Component> GetComponentList(Product product = null)
         {
-            string command = "SELECT component_id, component_name, component_price, description FROM components;";
+            string command;
+            if (ComponentsForm.textToSearch.Length==0)
+            {
+                command = "SELECT component_id, component_name, component_price, description FROM components;";
+            }
+            else
+            {
+                command = "SELECT component_id, component_name, component_price, description FROM components WHERE component_name LIKE '%" + ComponentsForm.textToSearch + "%';";
+                    //@@ to_tsquery('" + ComponentsForm.textToSearch + "');";
+            }
+           
             if (product != null)
             {
                 command =

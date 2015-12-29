@@ -76,6 +76,7 @@
             this.tbPass.Name = "tbPass";
             this.tbPass.Size = new System.Drawing.Size(303, 23);
             this.tbPass.TabIndex = 1;
+            this.tbPass.UseSystemPasswordChar = true;
             // 
             // LoginForm
             // 
@@ -93,6 +94,7 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Авторизация";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

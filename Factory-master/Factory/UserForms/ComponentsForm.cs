@@ -15,6 +15,7 @@ namespace Factory.UserForms
 {
     public partial class ComponentsForm : Form
     {
+        public static string textToSearch="";
         private List<ObjectClasses.Component> _components; 
 
         public ComponentsForm()
@@ -179,6 +180,17 @@ namespace Factory.UserForms
                 MessageBox.Show(ex.Message, @"Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
+            UpdateComponentList();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            textToSearch = textBox1.Text;
             UpdateComponentList();
         }
     }
